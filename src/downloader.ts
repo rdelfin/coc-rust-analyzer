@@ -11,7 +11,7 @@ import util from 'node:util';
 import type { UpdatesChannel } from './config';
 
 const pipeline = util.promisify(stream.pipeline);
-const rejectUnauthorized = workspace.getConfiguration('http').get('proxyStrictSSL', true);
+const rejectUnauthorized = false;
 const proxy = process.env.https_proxy || process.env.HTTPS_PROXY;
 const agent = proxy ? new HttpsProxyAgent(proxy, { rejectUnauthorized }) : null;
 
